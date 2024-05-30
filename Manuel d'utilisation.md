@@ -8,14 +8,14 @@ Format pour ajouter un contrôleur:
 
 <?php
 
-class Main extends Controller //class doit avoir le nom du contrôleur
+class Main extends Controller --class doit avoir le nom du contrôleur
 {
 
     public function index()
     {
-        $this ->loadModel('Mains'); //'Mains' nom du modèle à lier au contrôleur
+        $this ->loadModel('Mains'); --'Mains' nom du modèle à lier au contrôleur
 
-        $this->render('index'); //nom de la page php qui composera la vue
+        $this->render('index'); --nom de la page php qui composera la vue
     }
 
 }
@@ -27,10 +27,10 @@ Format pour ajouter un modèle:
 
 <?php
 
-class Mains extends Model //class doit avoir le nom du modèle
+class Mains extends Model --class doit avoir le nom du modèle
 {
-    public function __construct() //la fonction __construct() permet d'établir la connection à la bdd
-    {                              //ajouter des fonctions au modèle pour avoir des fonctionnalités
+    public function __construct() --la fonction __construct() permet d'établir la connection à la bdd
+    {                              --ajouter des fonctions au modèle pour avoir des fonctionnalités
         $this->getConnection();
     }
 }
@@ -52,9 +52,9 @@ class Admin extends Controller
     {
         $this ->loadModel('Admin_model');
 
-        $admin_login = $this->Admin_model->adminloginaccount(); //la variable $admin_login va contenir toutes les informations de la fonction "adminloginaccount"
-                                                                //Le nom du modèle utilisé doit être indiqué dans $this->nom_du_modèle->nom_de_la_fonction
-        $this->render('index', compact('admin_login')); //grâce à la fonction php compact, il est possible d'avoir plusieurs fonctions
+        $admin_login = $this->Admin_model->adminloginaccount(); --la variable $admin_login va contenir toutes les informations de la fonction "adminloginaccount"
+                                                                --Le nom du modèle utilisé doit être indiqué dans $this->nom_du_modèle->nom_de_la_fonction
+        $this->render('index', compact('admin_login')); --grâce à la fonction php compact, il est possible d'avoir plusieurs fonctions
     }
 
 }
@@ -67,16 +67,16 @@ Le contrôleur et le modèle principaux sont dans le dossier "app".
 <?php
 
 abstract class Model{
-    // infos bdd
+    -- infos bdd
     private $host = "localhost";
     private $db_name = "nom_de_bdd";
     private $username = "nom_utilisateur";
     private $password = "mot_de_passe";
 
-    // propriété contenant la connexion
+    -- propriété contenant la connexion
     protected $_connexion;
 
-    // propriétés contenant les informations de requêtes
+    -- propriétés contenant les informations de requêtes
     public $table;
     public $id;
 
@@ -84,7 +84,7 @@ abstract class Model{
         $this->_connexion = null;
 
         try{
-            $this->_connexion = new PDO('mysql:host='. $this->host . '; dbname=' . $this->db_name, $this->username, $this->password); //on établit la connexion
+            $this->_connexion = new PDO('mysql:host='. $this->host . '; dbname=' . $this->db_name, $this->username, $this->password); --on établit la connexion
             $this->_connexion->exec('set names utf8');
         }catch(PDOException $exception){
             echo 'Erreur de connexion: ' . $exception->getMessage();
@@ -118,15 +118,15 @@ abstract class Controller{
     {
         extract($data);
 
-        // On démarre le buffer de sortie
+        -- On démarre le buffer de sortie
         ob_start();
 
-        require_once(ROOT.'views/'.strtolower(get_class($this)).'/'.$fichier.'.php'); //strtolower permet aux url d'être écrit en majuscule ou minuscule
+        require_once(ROOT.'views/'.strtolower(get_class($this)).'/'.$fichier.'.php'); --strtolower permet aux url d'être écrit en majuscule ou minuscule
 
-        // On stocke le contenu dans $content
+        -- On stocke le contenu dans $content
         $content = ob_get_clean();
 
-        // On fabrique le "template"
+        -- On fabrique le "template"
         require_once(ROOT.'views/layout/default.php');
     }
 }
@@ -136,17 +136,17 @@ abstract class Controller{
 La vérification de l'url commence dans index.php (au tout début du dossier de l'application). Il est important de modifier ce fichier à la fois.
 
 <?php
-// constante contenant le chemin vers index.php
+-- constante contenant le chemin vers index.php
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 
 require_once(ROOT.'app/Model.php');
 require_once(ROOT.'app/Controller.php');
 
 
-// séparation des params
+-- séparation des params
 $params = explode('/', $_GET['p']);
 
-// est ce qu'un params existe
+-- est ce qu'un params existe
 if($params[0]!=""){
     $controller = ucfirst($params[0]);
 
@@ -167,10 +167,10 @@ if($params[0]!=""){
     }
 }else{
     require_once(ROOT.'controllers/Main.php');
-    // On instancie le contrôleur
+    -- On instancie le contrôleur
     $controller = new Main();
 
-    // On appelle la méthode index
+    -- On appelle la méthode index
     $controller->index();
 }
 
@@ -179,7 +179,7 @@ if($params[0]!=""){
 Le fichier .htaccess lie les fichiers du dossier "app" en envoyant index.php dans l'url.
 
 RewriteEngine On 
-RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1 //changer le nom du fichier à celui que vous voulez lier
+RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1 --changer le nom du fichier à celui que vous voulez lier
 
 Ainsi, vous pouvez modifier l'url du template, le fonctionnement de la vérification de l'url et la structure de l'application.
 
