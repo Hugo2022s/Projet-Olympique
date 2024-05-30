@@ -2,10 +2,10 @@
 
 abstract class Model{
     // infos bdd
-    private $host = "localhost";
-    private $db_name = "dbfd0l8ogdmk2d"; 
-    private $username = "um7algzyavaxt";
-    private $password = "5endqmagafo3";
+    private $host = "nom_de_host";
+    private $db_name = "nom_de_bdd"; 
+    private $username = "nom_de_user";
+    private $password = "mot_de_passe";
 
     // propriété contenant la connexion
     protected $_connexion;
