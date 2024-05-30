@@ -23,3 +23,4 @@ Technologies:
 - Javascript
 - Endroid qr-code
 - Vanilla-Tilt.js
+- Bootstrap
