@@ -1,186 +1,38 @@
 Manuel d'utilisation
 
-**Comment Ajouter Du Contenu**
+**Créer un compte**
 
-- Ajouter un contrôleur dans le dossier "controllers" ie. (Main.php)
+- Appuyez sur le bouton "Connexion/Inscription" ou tapez l'url "https://projetbloc3.com/inscription"
+- Entrez les informations et appuyez sur le bouton s'inscrire
 
-Format pour ajouter un contrôleur:
+**Se connecter à un compte**
 
-<?php
+- Appuyez sur le bouton "Connexion/Inscription" puis sur le lien "Déjà un compte?"
+ou tapez l'url "https://projetbloc3.com/connexion"
+- Entrez les informations et appuyez sur le bouton se connecter
 
-class Main extends Controller //class doit avoir le nom du contrôleur
-{
+**Se connecter d'un compte**
 
-    public function index()
-    {
-        $this ->loadModel('Mains'); //'Mains' nom du modèle à lier au contrôleur
+- Appuyez sur le bouton "Déconnexion" pour vous déconnecter
 
-        $this->render('index'); //nom de la page php qui composera la vue
-    }
+**Voir son profil**
 
-}
-?>
+- Après être connecter à votre compte, appuyez sur le bouton "Profil"
+ou tapez l'url "https://projetbloc3.com/profil"
 
-- Ajouter un modèle dans le dossier "models" ie. (Mains.php)
+**Voir ses achats**
 
-Format pour ajouter un modèle:
+- Après être connecter à votre compte, appuyez sur le bouton "Panier"
+ou tapez l'url "https://projetbloc3.com/panier"
 
-<?php
+**Acheter une offre**
 
-class Mains extends Model //class doit avoir le nom du modèle
-{
-    public function __construct() //la fonction __construct() permet d'établir la connection à la bdd
-    {                              //ajouter des fonctions au modèle pour avoir des fonctionnalités
-        $this->getConnection();
-    }
-}
-?>    
+- Après être connecter à votre compte, appuyez sur le bouton "Offres Disponibles"
+ou tapez l'url "https://projetbloc3.com/offres"
+- Survolez les affiches d'offres et la description de l'offre apparaîtra
+avec un bouton "Acheter"
+- Appuyez sur ce bouton pour confirmer l'achat
 
-- Créer un dossier dans le dossier "views" qui à le nom de votre contrôleur ie. main
-- Dans ce dossier, créer index.php qui a été précedemment inclus dans le contrôleur
+**Voir les offres**
 
-**Comment ajouter plusieurs fonctions**
-
-Dans cet exemple le modèle Admin.php utilise une fonction "adminloginaccount" pour établir un système de connexion:
-
-<?php
-
-class Admin extends Controller
-{
-
-    public function index()
-    {
-        $this ->loadModel('Admin_model');
-
-        $admin_login = $this->Admin_model->adminloginaccount(); //la variable $admin_login va contenir toutes les informations de la fonction "adminloginaccount"
-                                                                //Le nom du modèle utilisé doit être indiqué dans $this->nom_du_modèle->nom_de_la_fonction
-        $this->render('index', compact('admin_login')); //grâce à la fonction php compact, il est possible d'avoir plusieurs fonctions
-    }
-
-}
-?>
-
-**Comment changer les informations de connexion**
-
-Le contrôleur et le modèle principaux sont dans le dossier "app".
-
-<?php
-
-abstract class Model{
-    // infos bdd
-    private $host = "localhost";
-    private $db_name = "nom_de_bdd";
-    private $username = "nom_utilisateur";
-    private $password = "mot_de_passe";
-
-    // propriété contenant la connexion
-    protected $_connexion;
-
-    // propriétés contenant les informations de requêtes
-    public $table;
-    public $id;
-
-    public function getConnection(){
-        $this->_connexion = null;
-
-        try{
-            $this->_connexion = new PDO('mysql:host='. $this->host . '; dbname=' . $this->db_name, $this->username, $this->password); //on établit la connexion
-            $this->_connexion->exec('set names utf8');
-        }catch(PDOException $exception){
-            echo 'Erreur de connexion: ' . $exception->getMessage();
-        }
-    }
-
-    public function getAll(){
-        $sql = "SELECT * FROM " . $this->table;
-        $query = $this->_connexion->prepare($sql);
-        $query->execute();
-        return $query->fetchAll();
-    }
-
-}
-
-Vous pouvez modifier les informations pour la connexion de l'application dans le fichier Model.php. 
-
-**Comment changer la structure de l'application**
-
-Encore dans le dossier "app", le fichier Controller.php influence la structure de l'application.
-
-<?php
-
-abstract class Controller{
-    public function loadModel(string $model){
-        require_once(ROOT.'models/'.$model.'.php');
-        $this->$model = new $model();
-    }
-
-    public function render(string $fichier, array $data = [])
-    {
-        extract($data);
-
-        // On démarre le buffer de sortie
-        ob_start();
-
-        require_once(ROOT.'views/'.strtolower(get_class($this)).'/'.$fichier.'.php'); //strtolower permet aux url d'être écrit en majuscule ou minuscule
-
-        // On stocke le contenu dans $content
-        $content = ob_get_clean();
-
-        // On fabrique le "template"
-        require_once(ROOT.'views/layout/default.php');
-    }
-}
-
-?>
-
-La vérification de l'url commence dans index.php (au tout début du dossier de l'application). Il est important de modifier ce fichier à la fois.
-
-<?php
-// constante contenant le chemin vers index.php
-define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
-
-require_once(ROOT.'app/Model.php');
-require_once(ROOT.'app/Controller.php');
-
-
-// séparation des params
-$params = explode('/', $_GET['p']);
-
-// est ce qu'un params existe
-if($params[0]!=""){
-    $controller = ucfirst($params[0]);
-
-
-    $action = isset($params[1]) ? $params[1] : 'index';
-
-    require_once(ROOT.'controllers/'.$controller.'.php');
-
-    $controller = new $controller();
-
-    if(method_exists($controller, $action)){
-        unset($params[0]);
-        unset($params[1]);
-        call_user_func_array([$controller, $action], $params);
-    }else{
-        http_response_code(404);
-        echo "La page demandée n'existe pas";
-    }
-}else{
-    require_once(ROOT.'controllers/Main.php');
-    // On instancie le contrôleur
-    $controller = new Main();
-
-    // On appelle la méthode index
-    $controller->index();
-}
-
-?>
-
-Le fichier .htaccess lie les fichiers du dossier "app" en envoyant index.php dans l'url.
-
-RewriteEngine On 
-RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1 //changer le nom du fichier à celui que vous voulez lier
-
-Ainsi, vous pouvez modifier l'url du template, le fonctionnement de la vérification de l'url et la structure de l'application.
-
-
+- Appuyez sur le bouton "Offres Disponibles" ou tapez l'url "https://projetbloc3.com/offres"
