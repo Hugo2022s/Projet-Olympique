@@ -59,3 +59,128 @@ class Admin extends Controller
 
 }
 ?>
+
+**Comment changer les informations de connexion**
+
+Le contrôleur et le modèle principaux sont dans le dossier "app".
+
+<?php
+
+abstract class Model{
+    // infos bdd
+    private $host = "localhost";
+    private $db_name = "nom_de_bdd";
+    private $username = "nom_utilisateur";
+    private $password = "mot_de_passe";
+
+    // propriété contenant la connexion
+    protected $_connexion;
+
+    // propriétés contenant les informations de requêtes
+    public $table;
+    public $id;
+
+    public function getConnection(){
+        $this->_connexion = null;
+
+        try{
+            $this->_connexion = new PDO('mysql:host='. $this->host . '; dbname=' . $this->db_name, $this->username, $this->password); //on établit la connexion
+            $this->_connexion->exec('set names utf8');
+        }catch(PDOException $exception){
+            echo 'Erreur de connexion: ' . $exception->getMessage();
+        }
+    }
+
+    public function getAll(){
+        $sql = "SELECT * FROM " . $this->table;
+        $query = $this->_connexion->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
+
+}
+
+Vous pouvez modifier les informations pour la connexion de l'application dans le fichier Model.php. 
+
+**Comment changer la structure de l'application**
+
+Encore dans le dossier "app", le fichier Controller.php influence la structure de l'application.
+
+<?php
+
+abstract class Controller{
+    public function loadModel(string $model){
+        require_once(ROOT.'models/'.$model.'.php');
+        $this->$model = new $model();
+    }
+
+    public function render(string $fichier, array $data = [])
+    {
+        extract($data);
+
+        // On démarre le buffer de sortie
+        ob_start();
+
+        require_once(ROOT.'views/'.strtolower(get_class($this)).'/'.$fichier.'.php'); //strtolower permet aux url d'être écrit en majuscule ou minuscule
+
+        // On stocke le contenu dans $content
+        $content = ob_get_clean();
+
+        // On fabrique le "template"
+        require_once(ROOT.'views/layout/default.php');
+    }
+}
+
+?>
+
+La vérification de l'url commence dans index.php (au tout début du dossier de l'application). Il est important de modifier ce fichier à la fois.
+
+<?php
+// constante contenant le chemin vers index.php
+define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
+
+require_once(ROOT.'app/Model.php');
+require_once(ROOT.'app/Controller.php');
+
+
+// séparation des params
+$params = explode('/', $_GET['p']);
+
+// est ce qu'un params existe
+if($params[0]!=""){
+    $controller = ucfirst($params[0]);
+
+
+    $action = isset($params[1]) ? $params[1] : 'index';
+
+    require_once(ROOT.'controllers/'.$controller.'.php');
+
+    $controller = new $controller();
+
+    if(method_exists($controller, $action)){
+        unset($params[0]);
+        unset($params[1]);
+        call_user_func_array([$controller, $action], $params);
+    }else{
+        http_response_code(404);
+        echo "La page demandée n'existe pas";
+    }
+}else{
+    require_once(ROOT.'controllers/Main.php');
+    // On instancie le contrôleur
+    $controller = new Main();
+
+    // On appelle la méthode index
+    $controller->index();
+}
+
+?>
+
+Le fichier .htaccess lie les fichiers du dossier "app" en envoyant index.php dans l'url.
+
+RewriteEngine On 
+RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1 //changer le nom du fichier à celui que vous voulez lier
+
+Ainsi, vous pouvez modifier l'url du template, le fonctionnement de la vérification de l'url et la structure de l'application.
+
+
