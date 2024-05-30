@@ -3,9 +3,9 @@
 abstract class Model{
     // infos bdd
     private $host = "localhost";
-    private $db_name = "olympique"; //"nkfsgyfadminatel"
+    private $db_name = "olympique";
     private $username = "root";
-    private $password = ""; //uOS@79avDSuR_tAW
+    private $password = "";
 
     // propriété contenant la connexion
     protected $_connexion;
