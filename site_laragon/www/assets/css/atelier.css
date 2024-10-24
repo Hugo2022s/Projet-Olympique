@@ -1,0 +1,1156 @@
+/* DEBUG */
+
+.b1 {
+    background-color: blue;
+}
+
+.b2 {
+    background-color: red;
+}
+
+.b3 {
+    background-color: green;
+}
+
+* 
+{
+    margin: 0;
+    padding: 0;
+}
+
+/* #F6F0F0 */
+
+/* DEFAULT PAGE*/
+.main-head 
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #0c0c0c;
+    height: 189px;
+    width: 100%;
+}
+
+.main-head a:hover
+{
+    color:#94b0fd;
+}
+
+.small-head-left   
+{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.small-head-right
+{
+    display: flex;
+    align-items: center;
+}
+
+.main-title
+{
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Tinos', serif;
+    background-color: white;
+    border-radius: 40px;
+    padding:10px;
+    margin: 0px;
+    margin-left: 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.panier
+{
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Tinos', serif;
+    background-color: white;
+    border-radius: 40px;
+    padding:10px;
+    margin: 0px;
+    margin-right: 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.panier a:hover
+{
+    color:#94b0fd;
+}
+
+.accueillink
+{
+    text-decoration: none;
+}
+
+#logo
+{
+    width: 127px;
+    height: 147px;
+    margin: 0%;
+    margin-top: 0%;
+    /*border-radius: 75px;*/
+}
+
+.deconnect
+{
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Tinos', serif;
+    background-color: white;
+    border-radius: 40px;
+    padding:10px;
+    margin: 0px;
+    margin-right: 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.deconnect:hover
+{
+    color: #0065FC;
+}
+
+nav ul
+{
+    list-style-type: none;
+    margin: 0px;
+}
+
+nav a
+{
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover
+{
+    color:#94b0fd;
+    border-top: 3px solid #0065FC;
+}
+
+.bas_de_page
+{
+    height: 115px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    color: white;
+    /*font-size: 20px;*/
+}
+
+.sub-head
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 400;
+    font-family: 'Tinos', serif;
+    color: white;
+    background-color: black;
+    border-style: solid;
+    border-top-color: #C72C48;
+    border-bottom-color: #C72C48;
+    border-left-color: black;
+    border-right-color: black;
+    height: 63px;
+}
+
+.user-profil
+{
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Tinos', serif;
+    background-color: white;
+    border-radius: 40px;
+    padding:10px;
+    margin: 0px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.user-profil:hover
+{
+    color: #0065FC;
+}
+
+.menu
+{
+    margin-right: 30px;
+}
+
+
+.social a
+{
+    color: white;
+    text-decoration: none;
+}
+
+.social a:hover
+{
+    color:#94b0fd;
+    border-bottom: 3px solid #0065FC;
+}
+
+.ipad-size a
+{
+    color: white;
+    text-decoration: none;
+}
+
+.ipad-size a:hover
+{
+    color:#94b0fd;
+    border-bottom: 3px solid #0065FC;
+}
+
+.social
+{
+    display: flex;
+    align-items: center;
+}
+
+.socialtitre
+{
+    margin-right: 8px;
+    font-size: 15px;
+}
+
+.fa-brands
+{
+    font-size: 20px;
+    margin: 5px;
+    margin-bottom: 10px;
+}
+
+.ipad-size
+{
+    font-size: 15px;
+}
+
+/*MAIN PAGE*/
+
+.wrap-text
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.wrap-description
+{
+    flex-direction: column;
+    text-align: center;
+    margin: 20px;
+}
+
+#imageother
+{
+    object-fit: contain;
+    object-position: center center;
+    height: 650px;
+}
+
+/*OFFRES PAGE*/
+
+.container-all-offres
+{
+    display: flex;
+    flex-direction: column;
+    background-image: url(css_img/posterolympique.jpg);
+    background-position: center;
+    background-size: 50%;
+}
+
+.banner-offres
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    width: 500px;
+    /*padding: 10px;*/
+    margin: 50px;
+    align-self: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-offres img
+{
+    width: 100%;
+    height: auto;
+}
+
+.banner-offres:hover .content
+{
+    left: 0px;
+}
+
+.banner-offres:hover .offres-banner
+{
+    display: none;
+}
+
+.offres-banner
+{
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Tinos', serif;
+    margin: 0px;
+    position: absolute;
+}
+
+.content
+{
+    position: absolute;
+    background: rgba(0,0,0,0.8);
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    left: -100%;
+    width: 100%;
+    transition: all 0.5s;
+    align-content: center;
+    text-align: center;
+}
+
+.content button
+{
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: 400;
+    width: 100px;
+    font-family: 'Tinos', serif;
+    align-self: center;
+}
+
+.content button:hover
+{
+    background-color: #0065FC;
+}
+
+.offres
+{
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Tinos', serif;
+    margin: 0px;
+}
+
+.offres_prix
+{
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Tinos', serif;
+    margin: 0px;
+    margin-top: 20px;
+}
+
+/*CONNEXION PAGE & INSCRIPTION PAGE && ADMIN PAGE*/
+
+.login-form
+{
+    display: flex;
+    justify-content: center;
+    background-color: beige;
+}
+
+.login-form a
+{
+    align-self: center;
+}
+
+.login-form form
+{
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 50px;
+    padding: 50px;
+    width: 75%;
+}
+
+.login-title
+{
+    color: black;
+    margin: 15px;
+    padding: 15px;
+    font-weight: 400;
+    font-family: 'Tinos', serif;
+}
+
+.input-icons i {
+    position: absolute;
+    margin: 35px;
+}
+
+.input-css
+{
+    margin: 15px;
+    padding: 15px;
+    padding-left: 50px;
+    align-self: center;
+    width: 75%;
+    font-weight: 400;
+    font-family: 'Tinos', serif;
+}
+
+.submitlogin
+{
+    margin: 15px;
+    padding: 15px;
+    font-weight: 400;
+    width: 350px;
+    font-family: 'Tinos', serif;
+    align-self: center;
+}
+
+.submitlogin:hover
+{
+    background-color: #0065FC;
+}
+
+.lien_connexion
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*PROFIL PAGE && PANIER PAGE && CONFIG PAGE*/
+
+.profil-uti
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.profil-utisub
+{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+
+.profil-subcolumn img
+{
+    width: 200px;
+}
+
+.profil-subcolumn
+{
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    align-items: center;
+}
+
+.titre-latelier
+{
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'Tinos', serif;
+    padding: 30px;
+    margin: 0px;
+}
+
+.texte-latelier
+{
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Tinos', serif;
+    padding: 20px;
+    margin: 0px;
+}
+
+.admin-form
+{
+    display: flex;
+    justify-content: center;
+}
+
+.admin-form a
+{
+    align-self: center;
+}
+
+.admin-form form
+{
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 75%;
+}
+
+.admin-title
+{
+    color: black;
+    margin: 15px;
+    padding: 15px;
+    font-weight: 400;
+    font-family: 'Tinos', serif;
+}
+
+.admin-input-css
+{
+    margin: 15px;
+    padding: 15px;
+    align-self: center;
+    width: 25%;
+    font-weight: 400;
+    font-family: 'Tinos', serif;
+}
+
+.submitadmin
+{
+    margin: 15px;
+    padding: 15px;
+    font-weight: 400;
+    width: 200px;
+    font-family: 'Tinos', serif;
+    align-self: center;
+}
+
+.submitadmin:hover
+{
+    background-color: #0065FC;
+}
+
+.admin-list
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Transitions*/
+
+.transition-3
+{
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+    opacity: 0.5;
+    background-color: white;
+    transition: 0.5s ease-out;
+}
+
+.transition-3.is-active
+{
+    left: 0px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1280px) {
+
+.ipad-size, .socialtitre
+{
+    font-size: 13px;
+}
+
+#hide-mobile
+{
+    display: none;
+}
+
+.product-form
+{
+    font-size: 10px;
+    margin: 10px;
+}
+
+.deconnect
+{
+    font-size: 13px;
+    width: 100px;
+}
+
+.socialmargin
+{
+    font-size: 15px;
+    margin-bottom: 13px;
+}
+
+.columnatelier
+{
+    padding: 10px;
+}
+.menu
+{
+    font-size: 25px;
+}
+
+.main-title
+{
+    font-size: 20px;
+}
+
+.secondary-title
+{
+    font-size: 20px;
+    margin-left: 55px;
+}
+
+.third-title
+{
+    font-size: 30px;
+}
+
+#image, #imagedifferent, #imageother
+{
+    height: 500px;
+}
+
+#atelier
+{
+    width: 160px;
+    height: 150px;
+}
+
+.leftsideproduits, .rightsideproduits
+{
+    padding: 0px;
+}
+
+.small-title
+{
+    font-size: 25px;
+}
+
+.texte-latelier
+{
+    font-size: 20px;
+}
+
+.big-title
+{
+    font-size: 35px;
+}
+
+.banner-card img
+{
+    height: 140px;
+    width: 140px;
+    margin: 10px;
+}
+
+#produitsreduce
+{
+    font-size: 15px;
+}
+
+.banner-text h4
+{
+    font-size: 20px;
+}
+
+.banner-text
+{
+    top: 37%;
+    padding-top: 0px;
+}
+
+.product1
+{
+    padding-left: 11px;
+}
+
+.product2
+{
+    padding-left: 37px;
+}
+
+.product3
+{
+    padding-left: 22px;
+}
+
+.product4
+{
+    padding-left: 14px;
+}
+
+.product5
+{
+    padding-left: 50px;
+}
+
+.product6
+{
+    padding-left: 15px;
+}
+
+.product7
+{
+    padding-left: 0px;
+}
+
+.product8
+{
+    padding-left: 40px;
+}
+
+#produitscercle
+{
+    width: 100px;
+    height: 100px;
+}
+
+.iconchange
+{
+    width: 170px;
+    font-size: 17px;
+}
+
+.imageproduit
+{
+    height: 200px;
+    width: 200px;
+}
+
+.imageproduitspécial
+{
+    height: 285px;
+    width: 285px;
+}
+
+.imageproduitdifferent
+{
+    height: 255px;
+    width: 255px;
+}
+
+.deconnect
+{
+    font-size: 20px;
+    width: 150px;
+}
+
+#type_produits
+{
+        font-size: 13px;
+}
+
+.wrap-text
+{
+    flex-direction: column;
+}
+}
+
+@media screen and (max-width: 767px) {
+
+    .profil-subcolumn img
+    {
+    width: 100px;
+    }
+
+    .panier
+    {
+        font-size: 15px;
+        margin-right: 5px;
+        padding: 5px;
+    }
+
+    .offres
+    {
+        font-size: 13px;
+    }
+
+    .offres_prix
+    {
+        font-size: 13px;
+        margin-top: 5px;
+    }
+
+    .content button
+    {
+        margin-top: 5px;
+        padding: 5px;
+        font-weight: 400;
+        width: 75px;
+    }
+
+    .titre-latelier
+    {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .banner-offres
+    {
+        height: 150px;
+        width: 250px;
+        margin: 15px;
+    }
+
+    /*CONNEXION PAGE & INSCRIPTION PAGE && ADMIN PAGE*/
+
+
+.login-form form
+{
+    margin: 15px;
+    padding: 15px;
+}
+
+.login-title
+{
+    color: black;
+    margin: 15px;
+    padding: 15px;
+}
+
+.input-css
+{
+    margin: 15px;
+    padding: 8px;
+    padding-left: 35px;
+}
+
+.input-icons i
+{
+    margin: 29px;
+}
+
+.submitlogin
+{
+    margin: 10px;
+    padding: 10px;
+    width: 150px;
+}
+
+.admin-input-css
+{
+    margin: 15px;
+    padding: 15px;
+    width: 75%;
+}
+
+.submitadmin
+{
+    margin: 15px;
+    padding: 15px;
+    width: 150px;
+}
+
+    #image, #imagedifferent, #imageother
+    {
+        height: 300px;
+    }
+
+    .product-form
+    {
+        font-size: 10px;
+        margin: 10px;
+    }
+
+    .deconnect
+    {
+        font-size: 12px;
+        width: 100px;
+        margin-right: 5px;
+        padding: 5px;
+    }
+
+    .user-profil
+    {
+        font-size: 12px;
+        margin-left: 5px;
+        padding: 5px;
+    }
+
+    #type_produits
+    {
+        font-size: 10px;
+    }
+
+    #imagedifferent
+    {
+        object-position: top left;
+    }
+    
+    .main-title
+    {
+        font-size: 12px;
+        margin-left: 5px;
+        padding: 5px;
+    }
+
+    .main-head
+    {
+        height: 120px;
+    }
+
+    .secondary-title
+    {
+        font-size: 15px;
+        margin-left: 8px;
+    }
+
+    .third-title
+    {
+        display: none;
+    }
+
+    #logo
+    {
+        width: 88px;
+        height: 102px;
+    }
+
+    .fa-brands, .fab 
+    {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+
+    .wrap-text
+    {
+        flex-direction: column;
+    }
+    .sub-head
+    {
+        font-size: 15px;
+    }
+
+    .menu
+    {
+        margin-right: 5px;
+    }
+
+    nav ul
+    {
+        padding: 0px;
+    }
+
+    .ipad-size, .socialtitre
+    {
+    font-size: 10px;
+    }
+
+    .socialmargin
+    {
+        margin-bottom: 15px;
+        margin-left: 2px;
+        margin-right: 2px;
+        font-size: 15px;
+    }
+
+    #hide-mobile
+    {
+        display: none;
+    }
+
+    .big-title
+    {
+        font-size: 25px;
+        text-align: center;
+    }
+        
+    .small-title
+    {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .texte-latelier
+    {
+        font-size: 15px;
+    }
+
+    #atelier
+    {
+        height: 150px;
+        width: 160px;
+    }
+
+    .allcolumnsatelier, .allcolumnsproduits
+    {
+    flex-direction: column;
+    }
+
+    #column-reverse-mobile
+    {
+        flex-direction: column-reverse;
+    }
+
+    #not-for-mobile
+    {
+        display: none;
+    }
+
+    #not-for-display
+    {
+        display: block;
+    }
+
+    footer
+    {
+        height: 80px;
+    }
+
+    .banner-card img
+    {
+        height: 160px;
+        width: 160px;
+        margin: 10px;
+    }
+
+    #produitscercle
+    {
+        height: 100px;
+        width: 100px;
+    }
+
+    .banner-text h4
+    {
+        font-size: 20px;
+    }
+
+    .product1
+    {
+        padding-left: 20px;
+    }
+
+    .product2
+    {
+        padding-left: 45px;
+    }
+
+    .product3
+    {
+        padding-left: 30px;
+    }
+
+    .product4
+    {
+        padding-left: 25px;
+    }
+
+    .product5
+    {
+        padding-left: 60px;
+    }
+
+    .product6
+    {
+        padding-left: 25px;
+    }
+
+    .product7
+    {
+        padding-left: 0px;
+    }
+
+    .product8
+    {
+        padding-left: 50px;
+    }
+
+    .banner-text
+    {
+        padding-top: 0px;
+        top: 45%;
+    }
+
+    .ouverture
+    {
+        margin-left: 0px;
+        margin-right: 10px;
+    }
+
+    .listcollect
+    {
+        text-align: center;
+        margin-right: 25px;
+    }
+
+    .iconchange
+    {
+        width: 190px;
+        font-size: 20px;
+        margin-left: 30px;
+    }
+
+    .commandes-bold
+    {
+        margin-right: 30px;
+    }
+
+    #produitsreduce
+    {
+        width: 190px;
+        margin-right: 5px;
+        margin-left: 0px;
+    }
+
+    .imageproduit
+    {
+        height: 150px;
+        width: 150px;
+    }
+
+    .reduce
+    {
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 7px;
+    }
+
+    .smallertitle
+    {
+        font-size: 20px;
+    }
+
+    .imageproduitdifferent
+    {
+        height: 290px;
+        width: 200px;
+    }
+
+    .imageproduitspécial
+    {
+        height: 330px;
+        width: 250px;
+    }
+
+    #produitsreducespecial
+    {
+        margin-left: 0px;
+        margin-right: 70px;
+    }
+    
+    .standardadmin
+    {
+        flex-direction: column;
+    }
+}

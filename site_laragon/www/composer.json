@@ -1,0 +1,26 @@
+{
+    "name": "hugod/www",
+    "description": "Composer pour les JO",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Hugod\\Www\\": "src/",
+            "App\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hugo DE BROUX"
+        }
+    ],
+    "require": {
+        "php": "^7.3 || ^8.0",
+        "endroid/qr-code": "4.1.4"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    }
+}
