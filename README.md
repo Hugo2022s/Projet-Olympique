@@ -1,9 +1,9 @@
-# Projet-Olympique - Branche main
+# Projet-Olympique - Branche dev
 
-Le dossier "projet_environnement_de_test" contient le projet sous un format adapté à un environnement de développement php avec une application telle que Laragon ou Wamp. 
-Le dossier "projet_site_déployé" contient le projet sous un format adapté au déploiement de l'application sur une plateforme en ligne.
+La branche "main" contient le projet sous un format adapté au déploiement de l'application sur une plateforme en ligne. 
+La branche "dev" contient le projet sous un format adapté à un environnement de développement php avec une application telle que Laragon ou Wamp (contient les tests logiciels). 
 
-Les deux dossiers sont ensuite divisés en deux sous-dossiers. Un dossier bdd (Base de données) et un dossier site (contient tout le code). Le dossier bdd à contient l'export normal sql.  
+Les deux branches sont ensuite divisées en deux sous-dossiers. Un dossier bdd (Base de données) et un dossier site (contient tout le code). Le dossier bdd à contient l'export normal sql.  
 
 Le projet a été réalisé avec les outils et technologies suivantes:
 
